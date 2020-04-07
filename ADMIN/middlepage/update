@@ -1,0 +1,34 @@
+case 'update':
+		$subcat_id=$_REQUEST['subcat_id'];
+
+		 $update="UPDATE `sub_category` SET `subcat_id`='".$subcat_id."',`cat_id`='".$cat_id."',`subcat_name`='".$name."' WHERE `subcat_id`='".$subcat_id."'";
+   
+        $qry=mysqli_query($con,$update);
+
+		if ($qry)
+		{
+			echo "update Okok";
+			header("location:index.php?page=addhome_list");
+		}else
+		{
+			echo "Not update";
+		}
+		break;
+ 
+        case 'delete':
+		$subcat_id=$_REQUEST['subcat_id'];
+
+		echo $del="DELETE FROM `sub_category` WHERE `subcat_id`='".$subcat_id."'";
+
+		$qry=mysqli_query($con,$del);
+
+		if ($qry)
+		{
+			echo "delete Okok";
+			header("location:index.php?page=addhome_list");
+		}else
+		{
+			echo "Not delete";
+		}
+		break;
+
